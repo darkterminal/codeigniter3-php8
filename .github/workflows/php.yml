@@ -27,3 +27,12 @@ jobs:
         ini-values: post_max_size=256M, max_execution_time=180
         coverage: xdebug
         tools: php-cs-fixer, phpunit:${{ matrix.phpunit-versions }}
+  phpcs:
+      name: PHPCS
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: PHPCS check
+          uses: chekalsky/phpcs-action@v1
+          with:
+            enable_warnings: true
